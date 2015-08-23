@@ -17,8 +17,16 @@ then
   elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
   then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-  fi
 
+    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' > ~/.bashrc
+    echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"' > ~/.bashrc
+    echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' > ~/.bashrc
+
+    echo 'export PATH="$HOME/.linuxbrew/bin:$PATH"' > ~/.zshrc
+    echo 'export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"' > ~/.zshrc
+    echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' > ~/.zshrc
+
+  fi
 fi
 
 exit 0
