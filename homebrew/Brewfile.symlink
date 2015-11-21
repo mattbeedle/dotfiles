@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 cask_args appdir: '/Applications'
 
 tap "codekitchen/dinghy"
@@ -60,3 +61,8 @@ brew "watchman"
 brew "wget"
 brew "wireshark"
 brew "wrk"
+=======
+brew "grc"
+brew "coreutils"
+brew "spark"
+>>>>>>> Switch to using Brewfile for homebrew dependencies
