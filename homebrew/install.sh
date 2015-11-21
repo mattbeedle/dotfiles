@@ -29,4 +29,7 @@ then
   fi
 fi
 
+brew tap homebrew/bundle
+brew bundle --global
+
 exit 0
