@@ -170,7 +170,7 @@ then
   fi
 else
   info "installing dependencies"
-  if source bin/dot.linux > /tmp/dotfiles-dot
+  if source bin/dot.linux
   then
     success "dependencies installed"
   else
