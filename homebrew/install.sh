@@ -16,9 +16,6 @@ then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
     ln -sfn ~/.dotfiles/homebrew/Brewfile.osx ~/.Brewfile
-
-    brew tap homebrew/bundle
-    HOMEBREW_BREWFILE="$(~/.dotfiles/Brewfile)" brew bundle --global
   elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
   then
     sudo apt-get install -y build-essential gcc ruby zlib1g-dev libxslt1-dev
@@ -26,15 +23,12 @@ then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
 
     ln -sfn ~/.dotfiles/homebrew/Brewfile.linux ~/.Brewfile
-
-    pip install --upgrade pip
-    pip install pytz
-
-    brew update
-    brew tap homebrew/bundle
-    HOMEBREW_BREWFILE="$(~/.dotfiles/Brewfile.linux)" brew bundle --global
   fi
 fi
 
+
+brew update
+brew tap homebrew/bundle
+brew bundle --global
 
 exit 0
