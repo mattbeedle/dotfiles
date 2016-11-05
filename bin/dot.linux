@@ -23,6 +23,8 @@ echo 'export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"' >> ~/.zshrc
 
 . ~/.bashrc
 
+ln -sfn Brewfile.linux Brewfile
+
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install

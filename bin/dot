@@ -16,6 +16,8 @@ $ZSH/homebrew/install.sh 2>&1
 echo "› brew update"
 brew update
 
+ln -sfn Brewfile.osx Brewfile
+
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install
