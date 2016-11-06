@@ -20,5 +20,8 @@ echo "let g:vimified_packages = ['general', 'fancy', 'css', 'js', 'os', 'html', 
 
 ln -sfn ~/.extra.vimrc ~/vimified/extra.vimrc
 ln -sfn ~/.after.vimrc ~/vimified/after.vimrc
+ln -sfn ~/.vim/vimrc ~/.vim/init.vim
 
-vim +BundleInstall +qall 2>/dev/null
+sudo apt-get install -y xsel
+
+nvim +BundleInstall +qall 2>/dev/null
