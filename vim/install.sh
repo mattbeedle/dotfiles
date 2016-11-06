@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -d "$HOME/vimified"]; then
+if [ -d ~/vimified ]; then
     cd ~/vimified
     git fetch
 else
