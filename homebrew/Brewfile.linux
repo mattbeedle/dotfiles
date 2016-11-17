@@ -4,7 +4,7 @@ tap "homebrew/versions"
 tap "neovim/neovim"
 
 brew "amazon-ecs-cli"
-brew "ansible20"
+brew "ansible"
 brew "autoconf"
 brew "automake"
 brew "awscli"
