@@ -18,10 +18,15 @@ fi
 
 echo "let g:vimified_packages = ['general', 'fancy', 'css', 'js', 'os', 'html', 'coding', 'color', 'ruby']" > local.vimrc
 
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+fi
+
 ln -sfn ~/.extra.vimrc ~/vimified/extra.vimrc
 ln -sfn ~/.after.vimrc ~/vimified/after.vimrc
 ln -sfn ~/.vim/vimrc ~/.vim/init.vim
+ln -sfn ~/.vim ~/.config/nvim
 
 sudo apt-get install -y xsel
 
-nvim +BundleInstall +qall 2>/dev/null
+nvim +BundleInstall +qall

@@ -57,23 +57,9 @@ eval "$(rbenv init -)"
 export HISTCONTROL=ignoredups:erasedups
 
 # After each command, save and reload history
-# export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
-# source /usr/local/share/antigen/antigen.zsh
-# # POWERLEVEL9K_COLOR_SCHEME='light'
-# # POWERLEVEL9K_COLOR_SCHEME='dark'
-# # antigen theme bhilburn/powerlevel9k powerlevel9k
-# # antigen theme https://github.com/denysdovhan/spaceship-prompt spaceship
-# antigen theme https://github.com/maximbaz/spaceship-prompt spaceship
-# # export ALIEN_THEME="soft"
-# # export ALIEN_THEME="red"
-# # antigen theme eendroroy/alien alien
-# antigen apply
+export AWS_ACCESS_KEY=***REMOVED***
+export AWS_SECRET_KEY=***REMOVED***
 
-
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

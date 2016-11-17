@@ -21,3 +21,6 @@ alias gds="ey deploy -e staging_v3 -r "
 alias run="./bin/run"
 alias start="./bin/start"
 alias stop="./bin/stop"
+
+alias sdc="docker exec -it shadow $@"
+alias sdcd="docker exec -it shadow shadowcoind $@"
