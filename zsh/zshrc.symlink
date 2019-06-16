@@ -43,7 +43,7 @@ done
 unset config_files
 
 source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh/site-functions/_aws
+#source /usr/local/share/zsh/site-functions/_aws
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -71,11 +71,10 @@ export AWS_SECRET_KEY=***REMOVED***
 
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# export DOCKER_HOST=tcp://192.168.63.128:2376
-# export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy
-# export DOCKER_TLS_VERIFY=1
-# export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.63.128:2376 export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+#export DOCKER_HOST=tcp://192.168.63.128:2376
+#export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy
+#export DOCKER_TLS_VERIFY=1
+#export DOCKER_MACHINE_NAME=dinghy
+#export PATH="$HOME/.linuxbrew/bin:$PATH"
+#export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+#export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
