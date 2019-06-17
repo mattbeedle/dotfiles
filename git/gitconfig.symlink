@@ -9,7 +9,7 @@
         wtf     = !$ZSH/bin/git-wtf
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
-        cleanup = !git checkout master && git pull origin master && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d
+        cleanup = !git checkout master && git pull origin master && git fetch && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d && git-delete-squashed
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
@@ -43,6 +43,7 @@
         rim = rebase --interactive master
         rc = rebase --continue
         ra = rebase --abort
+        cr = "!git reflog | egrep -io \"moving from ([^[:space:]]+)\" | awk '{ print $3 }' | awk ' !x[$0]++' | head -n20 | fzf --height 60% | xargs git checkout"
 [color]
         diff = auto
         status = auto
@@ -50,7 +51,7 @@
         ui = true
 [core]
         excludesfile = ~/.gitignore
-        editor = vim
+        editor = nvim
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -65,3 +66,23 @@
         #
         # Setting to git 2.0 default to suppress warning message
         default = simple
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[user]
+	name = Matt Beedle
+	email = me@mattbeedle.name
+	signingkey = 02F3541C
+[rerere]
+	enabled = true
+[fetch]
+	prune = true
+[pull]
+	prune = true
+[init]
+    templatedir = ~/.git_template
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
