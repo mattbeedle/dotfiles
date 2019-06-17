@@ -28,11 +28,11 @@ do
   source $file
 done
 
-fpath=(~/zsh-completions/src $fpath)
+# fpath=(~/zsh-completions/src $fpath)
 
 # initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
@@ -51,13 +51,6 @@ define() {
   curl -s "http://www.collinsdictionary.com/dictionary/english/$*" | sed -n '/class="def"/p' | awk '{gsub(/.*<span class="def">|<\/span>.*/,"");print}' | sed "s/<[^>]\+>//g";
 }
 
-dcleanup(){
-  docker run --rm \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /etc:/etc \
-    eeacms/docker-gc
-}
-
 eval "$(rbenv init -)"
 
 # avoid duplicates..
@@ -70,11 +63,3 @@ export AWS_ACCESS_KEY=***REMOVED***
 export AWS_SECRET_KEY=***REMOVED***
 
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-#export DOCKER_HOST=tcp://192.168.63.128:2376
-#export DOCKER_CERT_PATH=/Users/Matt/.docker/machine/machines/dinghy
-#export DOCKER_TLS_VERIFY=1
-#export DOCKER_MACHINE_NAME=dinghy
-#export PATH="$HOME/.linuxbrew/bin:$PATH"
-#export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-#export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
