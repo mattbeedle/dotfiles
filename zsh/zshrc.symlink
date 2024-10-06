@@ -70,10 +70,9 @@ export HISTCONTROL=ignoredups:erasedups
 # # antigen theme eendroroy/alien alien
 # antigen apply
 
+export GROOVE_ENV_TYPE=minikube
+export GROOVE_OS_TYPE=mac
 
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
-export DOCKER_HOST=tcp://192.168.64.4:2376 export DOCKER_CERT_PATH=/Users/matt/.docker/machine/machines/dinghy export DOCKER_TLS_VERIFY=1 export DOCKER_MACHINE_NAME=dinghy
+eval "$(direnv hook zsh)"

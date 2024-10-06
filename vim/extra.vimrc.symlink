@@ -1,58 +1,84 @@
 " colorschemes
-call dein#add('wgibbs/vim-irblack')
-call dein#add('nanotech/jellybeans.vim')
-call dein#add('Lokaltog/vim-distinguished')
-call dein#add('flazz/vim-colorschemes')
-call dein#add('reedes/vim-colors-pencil')
-call dein#add('vim-scripts/pyte')
-call dein#add('vim-scripts/summerfruit256.vim')
-call dein#add('vim-scripts/AutumnLeaf')
-call dein#add('morhetz/gruvbox')
+call plug#begin()
+Plug 'wgibbs/vim-irblack'
+Plug 'nanotech/jellybeans.vim'
+Plug 'Lokaltog/vim-distinguished'
+Plug 'flazz/vim-colorschemes'
+Plug 'reedes/vim-colors-pencil'
+Plug 'vim-scripts/pyte'
+Plug 'vim-scripts/summerfruit256.vim'
+Plug 'vim-scripts/AutumnLeaf'
+Plug 'morhetz/gruvbox'
 
-call dein#add('leshill/vim-json')
-call dein#add('godlygeek/tabular')
-call dein#add('ngmy/vim-rubocop')
-call dein#add('vim-scripts/greplace.vim')
-call dein#add('tpope/vim-commentary')
-call dein#add('vim-scripts/loremipsum')
-call dein#add('ekalinin/Dockerfile.vim')
-call dein#add('ConradIrwin/vim-bracketed-paste')
-call dein#add('mustache/vim-mustache-handlebars')
-call dein#add('thoughtbot/vim-rspec')
-call dein#add('junegunn/fzf')
-call dein#add('junegunn/fzf.vim')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('christoomey/vim-tmux-navigator')
-call dein#add('hashivim/vim-terraform')
-call dein#add('pearofducks/ansible-vim')
-call dein#add('LeonB/vim-nginx')
-call dein#add('nicklasos/vim-jsx-riot')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('pangloss/vim-javascript')
-call dein#add('mxw/vim-jsx')
-call dein#add('othree/javascript-libraries-syntax.vim')
-call dein#add('MarcWeber/vim-addon-local-vimrc')
-call dein#add('leafgarland/typescript-vim')
-call dein#add('posva/vim-vue')
+Plug 'leshill/vim-json'
+Plug 'godlygeek/tabular'
+Plug 'ngmy/vim-rubocop'
+Plug 'vim-scripts/greplace.vim'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/loremipsum'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'thoughtbot/vim-rspec'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'hashivim/vim-terraform'
+Plug 'pearofducks/ansible-vim'
+Plug 'LeonB/vim-nginx'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'MarcWeber/vim-addon-local-vimrc'
+Plug 'leafgarland/typescript-vim'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 
-call dein#add('Shougo/deoplete.nvim')
-" if !has('nvim')
-  call dein#add('roxma/nvim-yarp')
-  call dein#add('roxma/vim-hug-neovim-rpc')
-  call dein#add('w0rp/ale')
-" endif
+" Plug 'Shougo/deoplete.nvim'
+if !has('nvim')
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'w0rp/ale'
+endif
+
+Plug 'elixir-editors/vim-elixir'
+Plug 'junegunn/goyo.vim'
+Plug 'vim-crystal/vim-crystal'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'tomlion/vim-solidity'
+
+Plug 'f-person/auto-dark-mode.nvim'
+Plug 'jremmen/vim-ripgrep'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-liquid'
+Plug 'rescript-lang/vim-rescript'
+Plug 'wakatime/vim-wakatime'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'cormacrelf/dark-notify'
+" Plug 'github/copilot.vim'
+Plug 'jxnblk/vim-mdx-js'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+Plug 'jparise/vim-graphql'
+
+" https://github.com/jackMort/ChatGPT.nvim
+Plug 'jackMort/ChatGPT.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+Plug 'madox2/vim-ai'
+Plug 'aduros/ai.vim'
+
+Plug 'supermaven-inc/supermaven-nvim'
+
+call plug#end()
+
 let g:deoplete#enable_at_startup = 1
-
-call dein#add('rhysd/vim-crystal')
-
-call dein#add('elixir-editors/vim-elixir')
-
-call dein#add('mattbeedle/vim-holylight')
-call dein#add('jremmen/vim-ripgrep')
-call dein#add('ryanoasis/vim-devicons')
-call dein#add('junkblocker/patchreview-vim')
-call dein#add('codegram/vim-codereview')
-call dein#add('tpope/vim-liquid')

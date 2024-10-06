@@ -1,11 +1,19 @@
 set t_Co=256
 colorscheme gruvbox
 set background=dark
+" colorscheme PaperColor
+" set background=light
 set eol
+
+let g:gruvbox_contrast_light = 'hard'
+
+" https://github.com/guard/listen/issues/434
+set backupcopy=yes
 
 set nofoldenable
 
-autocmd BufNewFile,BufRead *.json,*.js,*.feature,*.emblem,*.hbs,*.liquid,*.tag,*.jsx,*.rb,*.erb,*.tf,*.yml,*.rake set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd BufNewFile,BufRead *.json,*.js,*.feature,*.emblem,*.hbs,*.liquid,*.tag,*.jsx,*.mdx,*.rb,*.erb,*.tf,*.yml,*.rake,*.re,*.res,*.sol,*.tsx,*.dart,*.ts set tabstop=2 shiftwidth=2 softtabstop=2 expandtab nofoldenable
+autocmd BufNewFile,BufRead *.go set nofoldenable
 
 set shell=/bin/sh
 
@@ -18,6 +26,7 @@ au BufNewFile,BufRead *.tag setlocal ft=javascript
 
 au BufNewFile,BufRead *.conf setlocal ft=dosini
 au BufNewFile,BufRead *.god setlocal ft=ruby
+au BufNewFile,BufRead *.res setlocal ft=reason
 
 set clipboard=unnamed
 
@@ -44,3 +53,70 @@ elseif liquid_ext =~ 'css'
 endif
 
 command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --smart-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+
+cabbrev FZ GFiles
+
+let g:vim_ai_chat = {
+\  "options": {
+\    "model": "gpt-4",
+\    "temperature": 0.2,
+\  },
+\}
+
+" Configure Neural like so in Vimscript
+let g:neural = {
+\   'source': {
+\       'openai': {
+\           'api_key': $OPENAI_API_KEY,
+\       },
+\   },
+\}
+
+lua <<EOF
+-- chat gpt
+require("chatgpt").setup()
+EOF
+
+" :lua <<EOF
+" require('dark_notify').run()
+" EOF
+
+lua <<EOF
+require("supermaven-nvim").setup({})
+EOF
+
+set nofoldenable
+
+" custom command suggesting git commit message, takes no arguments
+function! GitCommitMessageFn()
+  let l:diff = system('git --no-pager diff --staged')
+  let l:prompt = "generate a short commit message from the diff below:\n" . l:diff
+  let l:range = 0
+  let l:config = {
+  \  "engine": "chat",
+  \  "options": {
+  \    "model": "gpt-3.5-turbo",
+  \    "initial_prompt": ">>> system\nyou are a code assistant",
+  \    "temperature": 1,
+  \  },
+  \}
+  call vim_ai#AIRun(l:range, l:config, l:prompt)
+endfunction
+command! GitCommitMessage call GitCommitMessageFn()
+
+" custom command that provides a code review for selected code block
+function! CodeReviewFn(range) range
+  let l:prompt = "programming syntax is " . &filetype . ", review the code below"
+  let l:config = {
+  \  "options": {
+  \    "initial_prompt": ">>> system\nyou are a clean code expert",
+  \  },
+  \}
+  '<,'>call vim_ai#AIChatRun(a:range, l:config, l:prompt)
+endfunction
+command! -range CodeReview <line1>,<line2>call CodeReviewFn(<range>)

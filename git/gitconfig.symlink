@@ -2,7 +2,7 @@
 [include]
         path = ~/.gitconfig.local
 [hub]
-        protocol = https
+	protocol = https
 [alias]
         co = checkout
         promote = !$ZSH/bin/git-promote
@@ -10,6 +10,7 @@
         rank-contributors = !$ZSH/bin/git-rank-contributors
         count   = !git shortlog -sn
         cleanup = !git checkout master && git pull origin master && git fetch && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d && git-delete-squashed
+        cleanupm = !git checkout main && git pull origin main && git fetch && git branch --merged | grep -v \"*\" | xargs -n 1 git branch -d && git-delete-squashed
         ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
         ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
         lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
@@ -52,6 +53,15 @@
 [core]
         excludesfile = ~/.gitignore
         editor = nvim
+        pager = delta
+[interactive]
+        diffFilter = delta --color-only
+[merge]
+        conflictstyle = diff3
+[delta]
+        navigate = true
+[diff]
+        colorMoved = default
 [apply]
         whitespace = nowarn
 [mergetool]
@@ -71,18 +81,23 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-[user]
-	name = Matt Beedle
-	email = me@mattbeedle.name
-	signingkey = 02F3541C
+; [user]
+; 	name = Matt Beedle
+; 	email = 2170+mattbeedle@users.noreply.github.com
+; 	signingkey = 02F3541C
 [rerere]
 	enabled = true
 [fetch]
 	prune = true
 [pull]
 	prune = true
-[init]
-    templatedir = ~/.git_template
-[pager]
-    diff = diff-so-fancy | less --tabs=1,5 -RFX
-    show = diff-so-fancy | less --tabs=1,5 -RFX
+    rebase = false
+; [init]
+;     templatedir = ~/.git_template
+; [pager]
+;     diff = diff-so-fancy | less --tabs=1,5 -RFX
+;     show = diff-so-fancy | less --tabs=1,5 -RFX
+[gpg]
+	program = gpg2
+[credential]
+        helper = !'/usr/local/bin/devpod' agent git-credentials --port 12049
